@@ -1,0 +1,13 @@
+set hlsearch
+set incsearch
+set ignorecase
+set smartcase
+set showmode
+" clear the highlighted search result
+nnoremap <Leader>sc :nohlsearch<CR>
+
+nnoremap <Leader>fs :w<CR>
+
+nnoremap <Leader>? :action GotoAction<CR>
+nnoremap gd :action GotoDeclaration<CR>
+nnoremap gi :action GotoImplementation<CR>
