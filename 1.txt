@@ -1,0 +1,10 @@
+startify
+ctrlp
+nerdtreeToggle
+
+coc
+coc-snippet
+vim-snippets
+
+
+vbundle
