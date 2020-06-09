@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+</head>
+<body>
+
+<div id="example1"></div>
+<div id="example2"></div>
+
+<script type="text/template" id="tpl1">
+<% _.each(datas, function (item) { %>
+    <div class="outer">
+        <%= item.film %> - <%= item.url %> - <%= item.director %>
+    </div>
+<% }); %>
+</script>
+<script type="text/template" id="tpl2">
+<% if ( 2 + 4 === 6 ) {
+    _.each(datas, function (item) { %>
+        <div class="outer">
+            <%= item.film %> - <%= item.url %> - <%= item.director %>
+        </div>
+    <% });
+} %>
+</script>
+
+<script src="http://cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+<script src="http://cdn.bootcss.com/lodash.js/4.16.6/lodash.min.js"></script>
+<script type="text/javascript">
+var datas = [
+    {
+        film: '电影名称1',
+        url: 'http://www.baidu.com',
+        director: '导演名称1'
+    },
+    {
+        film: '电影名称2',
+        url: 'http://www.baidu.com',
+        director: '导演名称2'
+    },
+    {
+        film: '电影名称3',
+        url: 'http://www.baidu.com',
+        director: '导演名称4'
+    },
+    {
+        film: '电影名称4',
+        url: 'http://www.baidu.com',
+        director: '导演名称4'
+    },
+];
+
+$('#example1').html( _.template($('#tpl1').html(), datas) );
+$('#example2').html( _.template($('#tpl2').html(), datas) );
+</script>
+
+</body>
+</html>
