@@ -1,0 +1,97 @@
+#!/usr/bin/env node --max-old-space-size=12096
+'use strict';
+const request = require('request');
+const fs = require('fs');
+const { callbackify } = require('util');
+
+
+var data = fs.readFileSync('./orderIds.txt', 'utf-8');
+
+var obj = JSON.parse(data);
+var res = [];
+for (let item of obj) {
+   const arr= item.split("\t");
+   const id = arr[0]
+   const venderId = arr[1];
+
+   res.push({
+       "orderId":id,
+       "venderId":venderId
+   });
+}
+
+
+const cidArr = JSON.parse(fs.readFileSync('./居家类目.txt', 'utf-8'));
+
+
+let batchIndex=0
+
+let myRe = /<Cid>(\d*)<\/Cid>/g;
+
+// console.log("开始了。");
+
+let step =100
+res.forEach((currentValue, index) => {
+
+    const {orderId, venderId } = currentValue;
+    if ((index % step == 0&& index !== 0) || ( index !== 0 && index % step != 0 && (index+1) == res.length)) {
+
+        batchIndex++
+
+       
+        let _tmp = res.slice(index-step, index);
+
+
+        setTimeout(function(arr,batchIndex){
+            console.log(Date.now()+" 当前序列 batchIndex="+batchIndex+" 处理单号："+arr.length)
+
+            arr.forEach((currentValue)=>{
+                const {orderId, venderId } = currentValue;
+
+
+                const options = { 
+                    method: 'GET',
+                    url: `http://orderverxml-query.ordermiddle.svc.lf5.n.jd.local/cartXml.txt?orderId=${orderId}&ver=0`,
+                    encoding: null,
+                    timeout: 5000,
+                    headers: { 
+                        'Content-Type': 'text/html;charset=UTF-8',
+                        'Cookie': 'sso.jd.com=BJ.7D2533CAADDD878BD4B7CD397F4C8A9D4720211115151149;',
+                        "user-agent":"Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko)  Chrome/41.0.2228.0 Safari/537.36"
+                    },
+                    orderId:orderId
+                };
+                request(options, function (error, response, body) {
+                    if (error) {
+                        console.log(options.orderId, "error", error);
+                        fs.writeFile('./exception_orderId.txt', options.orderId+",", { flag: 'a+' }, err => {})
+                        return;
+                    }
+            
+                    let reRsult;
+                    while (( reRsult = myRe.exec(body)) !== null) {
+                        const cid = Number(reRsult[1]);
+                        if (cidArr.includes(cid) || cidArr.indexOf(cid) > -1) {
+                             console.log("命中了"+orderId, cid);
+                            fs.writeFile('./target.txt', orderId+",", { flag: 'a+' }, err => {})
+                            fs.writeFile('./target_note.txt', orderId+","+cid+"\n", { flag: 'a+' }, err => {})
+                             return;
+                        }
+                    }
+                });
+            })
+
+        }, 1000*(batchIndex+1), _tmp,batchIndex);
+    }
+    
+    //i		const value = Buffer.from(body,"utf8").toString();
+    //		const frag = value.substr(1,50);
+   
+})
+
+// setInterval(function() {
+//     console.log("timer that keeps nodejs processing running");
+// }, 1000 * 60 );
+
+console.log("结束了")
+process.stdin.resume();
