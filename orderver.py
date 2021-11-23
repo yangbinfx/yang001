@@ -11,7 +11,7 @@ orderList = [117099381792,117099362592,117099448352]
 
 for orderId in orderList:
     try:
-        orderxml = erp.get(Request("http://orderver.jd.care/orderXml.xml?orderId={0}&ver=0".format(orderId)))
+        orderxml = erp.get(Request("http://orderver.xx.care/orderXml.xml?orderId={0}&ver=0".format(orderId)))
         sourceType = orderxml.content.split("AutoCancelTimeSource</Key>")[1].split("<Val>")[1].split("</Val>")[0]
     except:
         continue
