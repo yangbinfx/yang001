@@ -56,7 +56,7 @@ res.forEach((currentValue, index) => {
                     timeout: 5000,
                     headers: { 
                         'Content-Type': 'text/html;charset=UTF-8',
-                        'Cookie': 'sso.jd.com=BJ.7D2533CAADDD878BD4B7CD397F4C8A9D4720211115151149;',
+                        'Cookie': 'sso.xx.com=BJ.7D2533CAADDD878BD4B7CD397F4C8A9D4720211115151149;',
                         "user-agent":"Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko)  Chrome/41.0.2228.0 Safari/537.36"
                     },
                     orderId:orderId
