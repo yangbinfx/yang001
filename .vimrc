@@ -46,12 +46,15 @@ set guifont=Menlo:h15
 " Some servers have issues with backup files, see #649.
 set nobackup
 set nowritebackup
-
+set noswapfile
 
 "Change current folder as root
 let g:NERDTreeChDirMode = 2
 
 set cursorline
+"显示状态栏 光标位置
+set laststatus=2
+set ruler
 highlight Cursor guifg=white guibg=steelblue
 highlight iCursor guifg=white guibg=black
 set guicursor=a:blinkon0
