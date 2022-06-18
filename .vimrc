@@ -67,7 +67,6 @@ call plug#begin()
 
 Plug 'godlygeek/tabular'
 Plug 'mhinz/vim-startify'
-Plug 'mg979/vim-visual-multi'
 Plug 'scrooloose/nerdtree'
 
 call plug#end()
