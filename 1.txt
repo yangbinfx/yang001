@@ -13,6 +13,8 @@ https://github.com/mhinz/vim-startify/
 Plug 'mhinz/vim-startify'
 
 
+2、onedark
+https://github.com/joshdick/onedark.vim
 
 
 
