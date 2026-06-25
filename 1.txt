@@ -1,3 +1,21 @@
+一、 .vimrc文件修改
+
+
+
+二、
+插件管理器：
+https://github.com/junegunn/vim-plug
+
+
+1、开平工具
+https://github.com/mhinz/vim-startify/
+
+Plug 'mhinz/vim-startify'
+
+
+
+
+
 startify
 ctrlp
 nerdtreeToggle
