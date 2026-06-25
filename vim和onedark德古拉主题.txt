@@ -1,7 +1,4 @@
 一、 .vimrc文件修改
-
-
-
 二、
 插件管理器：
 https://github.com/junegunn/vim-plug
@@ -15,6 +12,7 @@ Plug 'mhinz/vim-startify'
 
 2、onedark
 https://github.com/joshdick/onedark.vim
+克隆到.vim目录下的plugin目录下，并修改文件名onedark
 
 
 
@@ -29,10 +27,17 @@ vim-snippets
 
 vbundle
 
+[iterm和ohmyzsh]
 
-三、命令行主题 ohmyzsh  德古拉主题
+三、命令行主题 iterm主题  德古拉主题
 
 git clone https://github.com/dracula/zsh.git
 
 https://draculatheme.com/zsh
+
+四、ohmyzsh的安装和
+autojump 、
+➜  ~ vim  ~/.zshrc
+ plugins=(git zsh-autosuggestions z autojump vi-mode)
+
 
