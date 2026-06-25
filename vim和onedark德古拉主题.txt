@@ -41,3 +41,29 @@ autojump 、
  plugins=(git zsh-autosuggestions z autojump vi-mode)
 
 
+
+四、命令行
+
+
+export MAVEN_HOME=/Applications/IntelliJ\ IDEA.app/Contents/plugins/maven/lib/maven3
+export M2_HOME=/Applications/IntelliJ\ IDEA.app/Contents/plugins/maven/lib/maven3
+export JAVA_17_HOME=/Library/Java/JavaVirtualMachines/jdk-17.jdk/Contents/Home
+export JAVA_21_HOME=/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home
+export JAVA_8_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_202.jdk/Contents/Home
+alias java8='export JAVA_HOME=$JAVA_8_HOME'
+alias java17='export JAVA_HOME=$JAVA_17_HOME'
+alias java21='export JAVA_HOME=$JAVA_21_HOME'
+java8
+#export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_202.jdk/Contents/Home
+
+export NODE_PATH=/usr/local/lib/node_modules
+
+export PATH=$PATH:$MAVEN_HOME/bin:$JAVA_HOME/bin:~/.local/bin
+
+alias gvim='/Applications/MacVim.app/Contents/MacOS/Vim -g'
+___MY_VMOPTIONS_SHELL_FILE="${HOME}/.jetbrains.vmoptions.sh"; if [ -f "${___MY_VMOPTIONS_SHELL_FILE}" ]; then . "${___MY_VMOPTIONS_SHELL_FILE}"; fi
+
+. "$HOME/.local/bin/env"
+
+
+
