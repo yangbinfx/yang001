@@ -1,17 +1,12 @@
-" 用浅色高亮当前行
-set smartindent
-
-" 智能对齐
+" 自动对齐
 set autoindent
 
-" 自动对齐
-set tabstop=4
-
 " Tab键的宽度
+set tabstop=4
 set softtabstop=4
+"  统一缩进为4
 set shiftwidth=4
 
-"  统一缩进为4
 set noexpandtab
 
 " 不要用空格代替制表符
@@ -23,11 +18,9 @@ set history=50
 set hlsearch
 set incsearch
 set ignorecase
-
 set autochdir
 
 
-" 行内替换
 set encoding=utf-8
 set fileencodings=utf-8,ucs-bom,shift-jis,gb18030,gbk,gb2312,cp936,utf-16,big5,euc-jp,latin1
 
@@ -35,37 +28,45 @@ set fileencodings=utf-8,ucs-bom,shift-jis,gb18030,gbk,gb2312,cp936,utf-16,big5,e
 set nobackup
 set nowritebackup
 set noswapfile
+set nowrap
 
 "Change current folder as root
 let g:NERDTreeChDirMode = 2
 
-set cursorline
-"显示状态栏 光标位置
-set laststatus=2
-set ruler
-
 
 
 call plug#begin()
-
-Plug 'godlygeek/tabular'
 Plug 'scrooloose/nerdtree'
-
-" Plug 'morhetz/gruvbox'
-Plug 'doums/darcula'
+Plug 'mhinz/vim-startify'
+Plug 'joshdick/onedark'
 
 call plug#end()
 
 syntax enable
-set bg=dark
-"colorscheme gruvbox
-colorscheme darcula
-highlight Cursor guifg=white guibg=steelblue
+"set cursorline
+"显示 光标位置
+set ruler
 
-set termguicolors
 
 " 设置颜色主题i
+"colorscheme gruvbox
+"highlight Cursor guifg=white guibg=steelblue
+
+if has('termguicolors')
+  set termguicolors
+endif
+"onedark
+set background=dark
+"colorscheme everforest
+colorscheme onedark
+"colorscheme torte
+
+
+
+
 " 设置字体
-set guifont=Menlo:h16
+set guifont=Monaco:h16
+"set guifont=Noto\ Sans\ Mono\ CJK\ SC:h16
 
-
+language en_US
+"set clipboard=unnamed   :y +  
