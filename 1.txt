@@ -28,3 +28,11 @@ vim-snippets
 
 
 vbundle
+
+
+三、命令行主题 ohmyzsh  德古拉主题
+
+git clone https://github.com/dracula/zsh.git
+
+https://draculatheme.com/zsh
+
